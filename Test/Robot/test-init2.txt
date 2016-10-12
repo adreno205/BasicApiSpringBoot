@@ -1,0 +1,15 @@
+*** Settings ***
+Library           RequestsLibrary
+
+*** Test Cases ***
+GetRequest_/
+    Create Session    TestInit    http://localhost:8080/
+    ${response}=    Get Request    TestInit    /
+    Should Be Equal As Integers    200    ${response.status_code}
+    Should Be Equal As Strings    Hail Hydra!    ${response.content}
+
+GetRequest_/name/last
+    Create Session    TestInit    http://localhost:8080/
+    ${response}=    Get Request    TestInit    /Tanakorn/Lueangkajonvit
+    Should Be Equal As Integers    200    ${response.status_code}
+    Should Be Equal As Strings    Hello, Tanakorn Lueangkajonvit    ${response.content}

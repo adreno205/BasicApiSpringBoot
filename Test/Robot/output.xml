@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20161012 11:04:07.930" generator="Robot 3.0 (Python 2.7.12 on win32)">
+<suite source="C:\Users\Tanakorn.lue\Desktop\workspace\test-init2\Test\Robot\test-init2.txt" id="s1" name="Test-Init2">
+<test id="s1-t1" name="GetRequest_/">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>TestInit</arg>
+<arg>http://localhost:8080/</arg>
+</arguments>
+<msg timestamp="20161012 11:04:08.020" level="INFO">Creating Session using : alias=TestInit, url=http://localhost:8080/, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20161012 11:04:08.020" starttime="20161012 11:04:08.020"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the</doc>
+<arguments>
+<arg>TestInit</arg>
+<arg>/</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20161012 11:04:08.030" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<msg timestamp="20161012 11:04:08.030" level="INFO">Get Request using : alias=TestInit, uri=/, headers=None </msg>
+<msg timestamp="20161012 11:04:08.030" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20161012 11:04:08.030" starttime="20161012 11:04:08.020"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>200</arg>
+<arg>${response.status_code}</arg>
+</arguments>
+<msg timestamp="20161012 11:04:08.030" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'int'&gt;</msg>
+<status status="PASS" endtime="20161012 11:04:08.040" starttime="20161012 11:04:08.030"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>Hail Hydra!</arg>
+<arg>${response.content}</arg>
+</arguments>
+<msg timestamp="20161012 11:04:08.040" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20161012 11:04:08.040" starttime="20161012 11:04:08.040"></status>
+</kw>
+<status status="PASS" endtime="20161012 11:04:08.040" critical="yes" starttime="20161012 11:04:08.020"></status>
+</test>
+<test id="s1-t2" name="GetRequest_/name/last">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>TestInit</arg>
+<arg>http://localhost:8080/</arg>
+</arguments>
+<msg timestamp="20161012 11:04:08.040" level="INFO">Creating Session using : alias=TestInit, url=http://localhost:8080/, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20161012 11:04:08.040" starttime="20161012 11:04:08.040"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the</doc>
+<arguments>
+<arg>TestInit</arg>
+<arg>/Tanakorn/Lueangkajonvit</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20161012 11:04:08.040" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<msg timestamp="20161012 11:04:08.050" level="INFO">Get Request using : alias=TestInit, uri=/Tanakorn/Lueangkajonvit, headers=None </msg>
+<msg timestamp="20161012 11:04:08.050" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20161012 11:04:08.050" starttime="20161012 11:04:08.040"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>200</arg>
+<arg>${response.status_code}</arg>
+</arguments>
+<msg timestamp="20161012 11:04:08.050" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'int'&gt;</msg>
+<status status="PASS" endtime="20161012 11:04:08.050" starttime="20161012 11:04:08.050"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>Hello, Tanakorn Lueangkajonvit</arg>
+<arg>${response.content}</arg>
+</arguments>
+<msg timestamp="20161012 11:04:08.050" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20161012 11:04:08.050" starttime="20161012 11:04:08.050"></status>
+</kw>
+<status status="PASS" endtime="20161012 11:04:08.050" critical="yes" starttime="20161012 11:04:08.040"></status>
+</test>
+<status status="PASS" endtime="20161012 11:04:08.050" starttime="20161012 11:04:07.930"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Test-Init2" pass="2">Test-Init2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
